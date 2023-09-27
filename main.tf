@@ -1,4 +1,10 @@
 terraform {
+  backend "remote" {
+		organization = "andrewboyd79" # org name from step 2.
+		workspaces {
+			name = "Terrahouse-example" # name for your app's state.
+		}
+	}
   required_providers {
     random = {
       source = "hashicorp/random"
