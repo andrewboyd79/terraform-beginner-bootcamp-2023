@@ -27,6 +27,11 @@ variable "owner" {
 variable "randomised_string" {
   description = "Result of the randomised string generator"
   type = string
-  default = "random_string.s3_bucket_name.result"
-  
+  default = "random_string.s3_bucket_name.result" 
 }
+
+# variable "variable_name" {
+#  description = "Variable description" # Should be present
+#  type        = #Input variable type
+#  default     = "Variable default value"
+# }
