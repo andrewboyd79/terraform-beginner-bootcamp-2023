@@ -1,3 +1,4 @@
+# Terraform Block
 terraform {
   backend "remote" {
     organization = "andrewboyd79" # org name from step 2.
@@ -6,11 +7,6 @@ terraform {
     }
   }
   required_providers {
-    random = {
-      source  = "hashicorp/random"
-      version = "3.5.1"
-    }
-
     aws = {
       source  = "hashicorp/aws"
       version = "5.18.1"
@@ -18,10 +14,7 @@ terraform {
   }
 }
 
-provider "random" {
-  # Configuration options
-}
-
+# Providers Block
 provider "aws" {
   region = var.region
 }
