@@ -1,12 +1,25 @@
-# Resources
-
-resource "aws_s3_bucket" "s3_bucket" {
-  bucket = "${var.owner}-${var.project_name}-${var.environment}-webhosting"
-
-  tags = {
-    Name        = "${var.owner}-${var.project_name}-${var.environment}-webhosting"
-    Created_by  = var.Created_By
-    Environment = var.environment
-    Owner       = var.owner
+# Terraform Block
+terraform {
+  backend "remote" {
+    organization = "andrewboyd79" # org name from step 2.
+    workspaces {
+      name = "Terrahouse-example" # name for your app's state.
+    }
   }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.18.1"
+    }
+  }
+}
+
+# Providers Block
+provider "aws" {
+  region = var.region
+}
+
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  
 }
