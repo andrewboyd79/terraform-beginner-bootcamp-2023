@@ -18,3 +18,8 @@ terraform {
 provider "aws" {
   region = var.region
 }
+
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  
+}
